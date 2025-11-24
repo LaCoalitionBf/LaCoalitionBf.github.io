@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F4C430"/>
+  <title>La Coalition — Révolution technique & technologique</title>
+
+  <!-- Favicon / Icons -->
+  <link rel="shortcut icon" href="assets/logo-coalition.png" type="image/png"/>
+  <link rel="apple-touch-icon" href="assets/logo-coalition.png"/>
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700|poppins:600,700" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bf-green:#1EB53A;   /* Burkina green */
+      --bf-red:#E31B23;     /* Burkina red */
+      --bf-gold:#F4C430;    /* star gold */
+      --ink:#0f0f10; 
+      --muted:#a0a3a7;
+      --surface:#121316;
+      --surface-2:#181a1f;
+      --card:#14161a;
+    }
+    html[data-theme="dark"] body{ background:var(--surface); color:#e8eaed; }
+    .navbar{ background:rgba(0,0,0,.35); backdrop-filter:blur(8px); }
+    .navbar .nav-link{ font-weight:600; letter-spacing:.2px; }
+    .navbar .nav-link.active{ color:var(--bf-gold)!important; }
+    .logo{ height:40px; width:auto; }
+    .brand-text{ font-family:Poppins, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; font-weight:700; letter-spacing:.3px; }
+    .btn-gold{ background:var(--bf-gold); border-color:var(--bf-gold); color:#1b1b1b; font-weight:700; }
+    .btn-gold:hover{ filter:brightness(.95); }
+    .btn-outline-gold{ border-color:var(--bf-gold); color:var(--bf-gold); }
+    .btn-outline-gold:hover{ background:var(--bf-gold); color:#111; }
+
+    /* Hero */
+    .hero{
+      position:relative;
+      min-height:92vh;
+      display:flex; align-items:center;
+      background:
+        linear-gradient(135deg, rgba(30,181,58,.18), rgba(227,27,35,.24)),
+        radial-gradient(1200px 600px at 10% 20%, rgba(244,196,48,.10), transparent 60%),
+        radial-gradient(1200px 700px at 90% 80%, rgba(30,181,58,.12), transparent 60%),
+        #0c0d0f;
+      overflow:hidden;
+    }
+    .flag-ribbon{
+      position:absolute; inset:auto 0 0 0; height:8px;
+      background:linear-gradient(90deg, var(--bf-red), var(--bf-gold), var(--bf-green));
+    }
+    .hero h1{
+      font-family:Poppins, Inter, system-ui; font-size:clamp(2rem, 5vw, 3.5rem);
+      font-weight:800; line-height:1.05; margin-bottom:.6rem;
+      text-shadow:0 10px 30px rgba(0,0,0,.4);
+    }
+    .hero .kicker{
+      display:inline-block; font-weight:700; letter-spacing:.35px; text-transform:uppercase;
+      color:#fff; background:linear-gradient(90deg, var(--bf-red), var(--bf-gold), var(--bf-green));
+      padding:.35rem .6rem; border-radius:.4rem; margin-bottom:1rem; font-size:.85rem;
+    }
+    .hero p.lead{ color:#d7d9dc; max-width:56ch; }
+
+    /* Sections */
+    .section{ padding:80px 0; }
+    .section.alt{ background:var(--surface-2); }
+    .section-title{
+      font-family:Poppins; font-weight:800; letter-spacing:.3px; margin-bottom:1rem;
+    }
+    .section-sub{ color:var(--muted); max-width:70ch; margin:0 auto 2.25rem; }
+
+    /* Cards */
+    .card{
+      background:var(--card); border:1px solid rgba(255,255,255,.05);
+      border-radius:16px; overflow:hidden;
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .card:hover{ transform:translateY(-3px); box-shadow:0 12px 40px rgba(0,0,0,.35); border-color:rgba(244,196,48,.25); }
+    .pill{ display:inline-block; font-size:.75rem; letter-spacing:.3px; text-transform:uppercase; font-weight:700; color:#111;
+      background:var(--bf-gold); border-radius:999px; padding:.3rem .6rem; }
+
+    /* Timeline */
+    .timeline .step{ display:flex; gap:14px; align-items:flex-start; }
+    .timeline .dot{
+      min-width:12px; height:12px; margin-top:.5rem; border-radius:50%;
+      background:linear-gradient(135deg, var(--bf-gold), #ffd95e);
+      box-shadow:0 0 0 4px rgba(244,196,48,.15);
+    }
+    .timeline h6{ margin:0; font-weight:700; }
+    .timeline p{ margin:.2rem 0 1rem; color:#c8cacc; }
+
+    /* Team */
+    .member{
+      display:flex; gap:16px; align-items:center;
+      padding:14px; border-radius:14px; background:rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.06);
+    }
+    .avatar{
+      width:64px; height:64px; border-radius:12px; object-fit:cover;
+      border:2px solid rgba(244,196,48,.5);
+    }
+    .role{ color:var(--muted); font-size:.9rem; }
+
+    /* Footer */
+    footer{ background:#0c0d0f; padding-top:48px; border-top:1px solid rgba(255,255,255,.06); }
+    .copyright{ border-top:1px solid rgba(255,255,255,.06); margin-top:24px; padding:16px 0; color:#9ba0a6; font-size:.9rem; }
+
+    /* Utilities */
+    .bg-flag{
+      background:
+        linear-gradient(90deg, var(--bf-red) 0 34%, var(--bf-gold) 34% 66%, var(--bf-green) 66% 100%);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .divider{ height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent); margin:28px 0; }
+    .muted{ color:var(--muted); }
+    .link-clean{ color:#e8eaed; text-decoration:none; }
+    .link-clean:hover{ color:var(--bf-gold); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#accueil">
+      <img class="logo" src="assets/logo-coalition.png" alt="Logo La Coalition">
+      <span class="brand-text">La Coalition</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="#accueil">Accueil</a></li>
+        <li class="nav-item"><a class="nav-link" href="#apropos">À propos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projets">Projets</a></li>
+        <li class="nav-item"><a class="nav-link" href="#membres">Membres</a></li>
+        <li class="nav-item"><a class="nav-link" href="#partenaires">Partenaires</a></li>
+        <li class="nav-item"><a class="nav-link" href="#articles">Articles</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="btn btn-sm btn-outline-gold" href="#adhesion"><i class="fa-solid fa-id-card me-1"></i> Adhésion</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="accueil" class="hero">
+  <div class="container position-relative">
+    <span class="kicker">Mouvement citoyen — Burkina Faso</span>
+    <h1><span class="bg-flag">Coaliser les intelligences</span><br/> pour une révolution technique & technologique</h1>
+    <p class="lead">
+      La Coalition est un mouvement dont l’objectif est de rassembler les intelligences burkinabè et les amis du Burkina Faso pour démontrer par l’action notre savoir-faire, et bâtir une souveraineté technologique au service du pays.
+    </p>
+    <div class="d-flex gap-2 mt-3">
+      <a href="#projets" class="btn btn-gold btn-lg"><i class="fa-solid fa-bolt me-2"></i> Voir nos projets</a>
+      <a href="#adhesion" class="btn btn-outline-gold btn-lg"><i class="fa-solid fa-users me-2"></i> Nous rejoindre</a>
+    </div>
+
+    <div class="row mt-5 g-3">
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <span class="pill">Vision</span>
+            <h5 class="mt-3">Technologie au service de la Nation</h5>
+            <p class="mb-0 muted">Former, innover et produire localement pour l’énergie, l’agri-tech, l’industrie, le numérique et l’éducation.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <span class="pill">Méthode</span>
+            <h5 class="mt-3">Projets concrets & ouverts</h5>
+            <p class="mb-0 muted">Prototyper vite, documenter, transférer les compétences, déployer avec les communautés et partenaires.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <span class="pill">Patriotisme</span>
+            <h5 class="mt-3">Fierté burkinabè</h5>
+            <p class="mb-0 muted">Valoriser les talents du pays et du diaspora pour des solutions utiles, durables et accessibles.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="flag-ribbon"></span>
+</header>
+
+<!-- A PROPOS -->
+<section id="apropos" class="section alt">
+  <div class="container">
+    <h2 class="section-title text-center">À propos</h2>
+    <p class="section-sub text-center">
+      « La Coalition est un mouvement qui a pour objectif de coaliser toutes les intelligences burkinabè afin de mener une révolution technique et technologique. »
+    </p>
+
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5>Ce que nous défendons</h5>
+            <div class="divider"></div>
+            <div class="timeline">
+              <div class="step">
+                <span class="dot"></span>
+                <div>
+                  <h6>Compétences locales d’abord</h6>
+                  <p>Encourager la formation, la recherche appliquée et la production locale pour réduire les dépendances.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="dot"></span>
+                <div>
+                  <h6>Innovation utile</h6>
+                  <p>Des solutions simples, robustes et documentées, qui améliorent le quotidien des Burkinabè.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="dot"></span>
+                <div>
+                  <h6>Ouverture & partenariats</h6>
+                  <p>Coopération avec universités, entreprises, collectivités et diaspora, dans l’intérêt général.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="dot"></span>
+                <div>
+                  <h6>Transparence</h6>
+                  <p>Charte de publication, documentation technique, résultats mesurables et partage des retours d’expérience.</p>
+                </div>
+              </div>
+            </div>
+            <a class="btn btn-outline-gold mt-2" href="#adhesion"><i class="fa-solid fa-id-card me-2"></i> Lire la charte & adhérer</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5>Axes d’action</h5>
+            <div class="divider"></div>
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="member">
+                  <img class="avatar" src="assets/icons/energy.png" alt="Énergie">
+                  <div>
+                    <strong>Énergie</strong>
+                    <div class="role">Solaire, réseaux isolés, efficacité</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="member">
+                  <img class="avatar" src="assets/icons/agri.png" alt="Agritech">
+                  <div>
+                    <strong>Agritech</strong>
+                    <div class="role">Irrigation, capteurs, froid</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="member">
+                  <img class="avatar" src="assets/icons/industry.png" alt="Industrie">
+                  <div>
+                    <strong>Industrie</strong>
+                    <div class="role">Automatisation, maintenance</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="member">
+                  <img class="avatar" src="assets/icons/digital.png" alt="Numérique">
+                  <div>
+                    <strong>Numérique</strong>
+                    <div class="role">Apps, data, cybersécurité</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-dark border mt-4" role="alert">
+              <i class="fa-solid fa-circle-info me-2 text-warning"></i>
+              Données éducation 2023–2024 : 225 902 étudiants au supérieur au Burkina Faso, 42% de filles. Ratio public ~160 étudiants / enseignant permanent. 
+              <br>
+              <small class="muted">Source : Tableau de bord du MESRI (février 2025).</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projets" class="section">
+  <div class="container">
+    <h2 class="section-title text-center">Projets</h2>
+    <p class="section-sub text-center">Démontrer par l’action notre savoir-faire — des solutions concrètes, utiles et maintenables.</p>
+
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="card h-100">
+          <img src="assets/projects/faso-qrcode.jpg" class="card-img-top" alt="Faso QRCode">
+          <div class="card-body">
+            <span class="pill">Application mobile</span>
+            <h5 class="mt-2">Faso QRCode</h5>
+            <p class="muted">Scanner et générer des QR codes, hors-ligne, léger, et pensé pour les usages administratifs et commerçants locaux.</p>
+            <div class="d-flex gap-2">
+              <a class="btn btn-gold" href="https://play.google.com/store/apps/details?id=com.companyname.fasoqrcode&pli=1" target="_blank"><i class="fa-solid fa-download me-2"></i>Télécharger</a>
+              <a class="btn btn-outline-gold" href="https://github.com/belem2050/FasoQRCode" target="_blank"><i class="fa-brands fa-github me-2"></i>Code source</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card h-100">
+          <img src="assets/projects/faso-tnt.png" class="card-img-top" alt="Faso TNT">
+          <div class="card-body">
+            <span class="pill">Application mobile</span>
+            <h5 class="mt-2">Faso TNT</h5>
+            <p class="muted">Accès simple aux chaînes de la TNT du Burkina Faso, guide minimal, ergonomie sobre, et optimisation data.</p>
+            <div class="d-flex gap-2">
+              <a class="btn btn-outline-gold" href="https://github.com/belem2050/FasoTNT" target="_blank"><i class="fa-brands fa-github me-2"></i>Code source</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card h-100">
+          <img src="assets/projects/mobile-robot-commander.png" class="card-img-top" alt="Mobile Robot Commander">
+          <div class="card-body">
+            <span class="pill">Contrôle & robotique</span>
+            <h5 class="mt-2">Mobile Robot Commander</h5>
+            <p class="muted">Télécommander tout robot mobile via une app unifiée : profils, sécurité, latence faible, et API ouverte.</p>
+            <div class="d-flex gap-2">
+              <a class="btn btn-gold" href="https://github.com/belem2050/MobileRobotCommander/releases/download/1.0.0/belem2050.mobilerobotcommander-Signed.apk" target="_blank"><i class="fa-solid fa-download me-2"></i>Télécharger</a>
+              <a class="btn btn-outline-gold" href="https://github.com/belem2050/MobileRobotCommander" target="_blank"><i class="fa-brands fa-github me-2"></i>Code source</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA contribute -->
+    <div class="card mt-4">
+      <div class="card-body d-lg-flex align-items-center justify-content-between">
+        <div class="mb-3 mb-lg-0">
+          <h5 class="mb-1">Vous voulez contribuer ?</h5>
+          <div class="muted">Design, code, terrain, tests utilisateurs, traduction — toute compétence est utile.</div>
+        </div>
+        <div class="d-flex gap-2">
+          <a class="btn btn-outline-gold" href="#contact"><i class="fa-solid fa-envelope me-2"></i> Nous écrire</a>
+          <a class="btn btn-gold" href="#adhesion"><i class="fa-solid fa-user-plus me-2"></i> Rejoindre La Coalition</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBRES -->
+<section id="membres" class="section alt">
+  <div class="container">
+    <h2 class="section-title text-center">Membres & Bureau</h2>
+    <p class="section-sub text-center">Une équipe multi-disciplinaire : ingénierie, design, data, terrain, gestion de projet.</p>
+
+
+
+
+
+    <div class="row g-3">
+      <!-- Dupliquez ces cartes pour ajouter vos vrais membres -->
+      <div class="col-md-6 col-lg-4">
+        <div class="member">
+          <a href="https://www.linkedin.com/in/belem2050/" class="member-link">
+        <img class="avatar" src="assets/team/moumouni_belem.png" alt="Moumouni Belem">
+        </a>
+          <div>
+            <strong>Moumouni BELEM</strong>
+            <div class="role">Ingénieur, développeur</div>
+            <div class="muted">Robotique, IA, .NET </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="member">
+          <img class="avatar" src="assets/team/vice.jpg" alt="Vice-président">
+          <div>
+            <strong>Nom Prénom</strong>
+            <div class="role">Vice-président(e)</div>
+            <div class="muted">Applications mobiles, architecture</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="member">
+          <img class="avatar" src="assets/team/secretary.jpg" alt="Secrétaire">
+          <div>
+            <strong>Nom Prénom</strong>
+            <div class="role">Secrétaire</div>
+            <div class="muted">Organisation, conformité, reporting</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="member">
+          <img class="avatar" src="assets/team/treasurer.jpg" alt="Trésorier">
+          <div>
+            <strong>Nom Prénom</strong>
+            <div class="role">Trésorier(e)</div>
+            <div class="muted">Budget, achats, mécénat</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="member">
+          <img class="avatar" src="assets/team/lead-tech.jpg" alt="Lead Tech">
+          <div>
+            <strong>Nom Prénom</strong>
+            <div class="role">Lead Tech</div>
+            <div class="muted">Infra, QA, sécurité</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="member">
+          <img class="avatar" src="assets/team/lead-ops.jpg" alt="Lead Opérations">
+          <div>
+            <strong>Nom Prénom</strong>
+            <div class="role">Lead Opérations</div>
+            <div class="muted">Déploiements terrain, formation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="#adhesion" class="btn btn-gold"><i class="fa-solid fa-user-plus me-2"></i> Devenir membre</a>
+    </div>
+  </div>
+</section>
+
+<!-- PARTENAIRES -->
+<section id="partenaires" class="section">
+  <div class="container">
+    <h2 class="section-title text-center">Partenaires</h2>
+    <p class="section-sub text-center">Universités, incubateurs, entreprises, collectivités, ONG et diaspora.</p>
+
+    <div class="row g-4">
+      <!-- Logos partenaires -->
+      <div class="col-6 col-md-3">
+        <div class="card p-3 text-center">
+          <img src="assets/partners/university.png" class="img-fluid" alt="Université partenaire">
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="card p-3 text-center">
+          <img src="assets/partners/incubator.png" class="img-fluid" alt="Incubateur partenaire">
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="card p-3 text-center">
+          <img src="assets/partners/company.png" class="img-fluid" alt="Entreprise partenaire">
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="card p-3 text-center">
+          <img src="assets/partners/diaspora.png" class="img-fluid" alt="Diaspora partenaire">
+        </div>
+      </div>
+    </div>
+
+    <div class="card mt-4">
+      <div class="card-body d-lg-flex align-items-center justify-content-between">
+        <div class="mb-3 mb-lg-0">
+          <h5 class="mb-1">Construisons ensemble</h5>
+          <div class="muted">Soutenez des projets à impact, gagnez en visibilité et formez les talents locaux.</div>
+        </div>
+        <a class="btn btn-outline-gold" href="#contact"><i class="fa-solid fa-handshake me-2"></i> Devenir partenaire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section id="articles" class="section alt">
+  <div class="container">
+    <h2 class="section-title text-center">Articles & prises de position</h2>
+    <p class="section-sub text-center">Nos analyses mensuelles au service de l’intérêt national.</p>
+
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <span class="pill">Énergie</span>
+            <h5 class="mt-2">L’électricité, moteur du développement technologique du Burkina Faso</h5>
+            <p class="muted mb-2">Accès, fiabilité, mix énergétique et pistes d’action citoyenne. Focus mini-réseaux, formation, innovation locale et PPP.</p>
+            <a class="link-clean" href="#"><i class="fa-solid fa-book-open me-2 text-warning"></i>Lire l’article</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <span class="pill">Capital humain</span>
+            <h5 class="mt-2">Former pour innover : le pilier du développement technologique</h5>
+            <p class="muted mb-2">Aligner formations et besoins, renforcer la pratique, documenter, valoriser la recherche appliquée et les FabLabs.</p>
+            <a class="link-clean" href="#"><i class="fa-solid fa-book-open me-2 text-warning"></i>Lire l’article</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <a class="btn btn-outline-gold" href="#"><i class="fa-solid fa-newspaper me-2"></i>Tous les articles</a>
+    </div>
+  </div>
+</section>
+
+<!-- ADHESION -->
+<section id="adhesion" class="section">
+  <div class="container">
+    <h2 class="section-title text-center">Adhésion & Bénévolat</h2>
+    <p class="section-sub text-center">Rejoignez un réseau de contributeurs engagés. Étudiants, professionnels, diaspora : chacun a sa place.</p>
+
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5>Comment participer ?</h5>
+            <div class="divider"></div>
+            <ul class="muted mb-3">
+              <li>Contribuer à un projet en cours (design, code, tests, déploiement, support).</li>
+              <li>Proposer un nouveau projet utile et réaliste — et constituer une équipe.</li>
+              <li>Mentorer des jeunes contributeurs et documenter les savoir-faire.</li>
+              <li>Mobiliser des partenaires et relayer nos actions.</li>
+            </ul>
+            <a href="#contact" class="btn btn-gold"><i class="fa-solid fa-paper-plane me-2"></i> Je propose mon aide</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5>Devenir membre</h5>
+            <div class="divider"></div>
+            <p class="muted">Adhésion annuelle — soutien moral et matériel, participation aux votes et groupes de travail.</p>
+            <a href="#" class="btn btn-outline-gold w-100"><i class="fa-solid fa-id-card me-2"></i> Adhérer maintenant</a>
+            <p class="muted mt-3"><small>Vous pouvez aussi soutenir ponctuellement via don : matériel, hébergement, connectivité, logistique.</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section alt">
+  <div class="container">
+    <h2 class="section-title text-center">Contact</h2>
+    <p class="section-sub text-center">Écrivez-nous pour un partenariat, une contribution ou une demande média.</p>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-body">
+            <form action="#" method="POST">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label" for="name">Nom</label>
+                  <input class="form-control" id="name" name="name" type="text" placeholder="Votre nom" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label" for="email">Email</label>
+                  <input class="form-control" id="email" name="email" type="email" placeholder="email@exemple.com" required>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="subject">Sujet</label>
+                <input class="form-control" id="subject" name="subject" type="text" placeholder="Objet de votre message" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="message">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
+              </div>
+              <button class="btn btn-gold w-100" type="submit"><i class="fa-solid fa-paper-plane me-2"></i> Envoyer</button>
+            </form>
+
+            <div class="divider"></div>
+            <div class="text-center">
+              <div class="mb-2 muted">Réseaux</div>
+              <div class="d-flex gap-3 justify-content-center fs-5">
+                <a class="link-clean" href="https://www.linkedin.com/company/lacoalition" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a class="link-clean" href="https://github.com/LaCoaltion" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              </div>
+              <p class="muted mt-3 mb-0"><small>Adresse postale ou siège (à compléter)</small></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="d-flex align-items-center gap-2 mb-2">
+          <img class="logo" src="assets/logo-coalition.png" alt="Logo La Coalition">
+          <strong class="brand-text">La Coalition</strong>
+        </div>
+        <p class="muted mb-2">Mouvement citoyen — Burkina Faso</p>
+        <p class="muted">Coaliser les intelligences, développer les compétences, produire des solutions utiles au pays.</p>
+      </div>
+      <div class="col-6 col-lg-3">
+        <h6 class="mb-3">Navigation</h6>
+        <ul class="list-unstyled">
+          <li><a class="link-clean" href="#accueil">Accueil</a></li>
+          <li><a class="link-clean" href="#apropos">À propos</a></li>
+          <li><a class="link-clean" href="#projets">Projets</a></li>
+          <li><a class="link-clean" href="#membres">Membres</a></li>
+          <li><a class="link-clean" href="#partenaires">Partenaires</a></li>
+          <li><a class="link-clean" href="#articles">Articles</a></li>
+          <li><a class="link-clean" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3">
+        <h6 class="mb-3">Documents</h6>
+        <ul class="list-unstyled">
+          <li><a class="link-clean" href="#">Statuts</a></li>
+          <li><a class="link-clean" href="#">Charte de contribution</a></li>
+          <li><a class="link-clean" href="#">Rapports & bilans</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright text-center">
+      © <span id="year"></span> La Coalition — Tous droits réservés
+    </div>
+  </div>
+</footer>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Active link on scroll
+  const sections = [...document.querySelectorAll("section, header")];
+  const navLinks = [...document.querySelectorAll(".nav-link")];
+  const year = document.getElementById('year'); if(year){ year.textContent = new Date().getFullYear(); }
+
+  function onScroll(){
+    const y = window.scrollY + 120;
+    let current = "#accueil";
+    for(const s of sections){
+      if(y >= s.offsetTop) current = "#" + (s.id || "accueil");
+    }
+    navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href")===current));
+  }
+  document.addEventListener("scroll", onScroll);
+  onScroll();
+</script>
+</body>
+</html>
