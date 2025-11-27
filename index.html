@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#F4C430"/>
-  <title>La Coalition — Révolution technique & technologique</title>
+  <title>La Coalition — Révolution technique & technologiqueggfgf</title>
 
   <!-- Favicon / Icons -->
   <link rel="shortcut icon" href="assets/logo-coalition.png" type="image/png"/>
@@ -42,6 +42,7 @@
 
     /* Hero */
     .hero{
+      padding-top: 70px;
       position:relative;
       min-height:92vh;
       display:flex; align-items:center;
@@ -93,8 +94,24 @@
       background:linear-gradient(135deg, var(--bf-gold), #ffd95e);
       box-shadow:0 0 0 4px rgba(244,196,48,.15);
     }
-    .timeline h6{ margin:0; font-weight:700; }
+    .timeline h5{ margin:0; font-weight:700; color:#f0f1f2; }
+    .timeline h6{ margin:0; font-weight:700; color:#f0f1f2; }
     .timeline p{ margin:.2rem 0 1rem; color:#c8cacc; }
+
+    /* Better text contrast on dark backgrounds */
+    .section-title,
+    .card-body h5,
+    .timeline h5,
+    .timeline h6 {
+      color: #f5f7fa; /* Clear, readable soft white */
+    }
+
+    .card-body p,
+    .member div,
+    .section-sub {
+      color: #d0d3d7;
+    }
+
 
     /* Team */
     .member{
@@ -374,7 +391,7 @@
 <!-- MEMBRES -->
 <section id="membres" class="section alt">
   <div class="container">
-    <h2 class="section-title text-center">Membres & Bureau</h2>
+    <h2 class="section-title text-center">Membres</h2>
     <p class="section-sub text-center">Une équipe multi-disciplinaire : ingénierie, design, data, terrain, gestion de projet.</p>
 
 
@@ -396,61 +413,157 @@
         </div>
       </div>
 
-      <!-- <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-4">
         <div class="member">
-          <img class="avatar" src="assets/team/vice.jpg" alt="Vice-président">
+          <a href="https://www.linkedin.com/in/nouredine-nacro-306010172/" class="member-link">
+        <img class="avatar" src="assets/team/nacro.png" alt="Nouredine NACRO">
+        </a>
           <div>
-            <strong>Nom Prénom</strong>
-            <div class="role">Vice-président(e)</div>
-            <div class="muted">Applications mobiles, architecture</div>
+            <strong>Nouredine NACRO</strong>
+            <div class="role">Ingénieur</div>
+            <div class="muted">CAMO, Project Management</div>
           </div>
         </div>
       </div>
 
       <div class="col-md-6 col-lg-4">
         <div class="member">
-          <img class="avatar" src="assets/team/secretary.jpg" alt="Secrétaire">
+          <a href="https://www.linkedin.com/in/abdel-ouedraogo/" class="member-link">
+        <img class="avatar" src="assets/team/abdel.png" alt="Moumouni Belem">
+        </a>
           <div>
-            <strong>Nom Prénom</strong>
-            <div class="role">Secrétaire</div>
-            <div class="muted">Organisation, conformité, reporting</div>
+            <strong>Abdel OUEDRAOGO</strong>
+            <div class="role">Ingénieur</div>
+            <div class="muted">Developpeur Logiciel</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="member">
+          <a href="https://www.linkedin.com/in/laurent-ateca-lompo-857916208/" class="member-link">
+        <img class="avatar" src="assets/team/ateca.png" alt="Ateca LOMPO">
+        </a>
+          <div>
+            <strong>Ateca LOMPO</strong>
+            <div class="role">Ingénieur</div>
+            <div class="muted">Industrie</div>
           </div>
         </div>
       </div>
 
       <div class="col-md-6 col-lg-4">
         <div class="member">
-          <img class="avatar" src="assets/team/treasurer.jpg" alt="Trésorier">
+          <a href="https://www.linkedin.com/in/farid-coulibaly-57893934a/" class="member-link">
+        <img class="avatar" src="assets/team/farid.png" alt="Farid COULIBALY">
+        </a>
           <div>
-            <strong>Nom Prénom</strong>
-            <div class="role">Trésorier(e)</div>
-            <div class="muted">Budget, achats, mécénat</div>
+            <strong>Farid COULIBALY</strong>
+            <div class="role">Etudiant</div>
+            <div class="muted">Gestion durable environnement</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="member">
+          <a href="https://www.linkedin.com/in/amade-ouedraogo/" class="member-link">
+        <img class="avatar" src="assets/team/amade.png" alt="Amade OUEDRAOGO">
+        </a>
+          <div>
+            <strong>Amade OUEDRAOGO</strong>
+            <div class="role">Purchaser</div>
+            <div class="muted">Supplay Chain</div>
+          </div>
+        </div>
+      </div>
+            <div class="col-md-6 col-lg-4">
+        <div class="member">
+          <a href="hhttps://www.linkedin.com/in/farid-coulibaly-57893934a/" class="member-link">
+        <img class="avatar" src="assets/team/farid.png" alt="Cheick KANAZOE">
+        </a>
+          <div>
+            <strong>Farid COULIBALY</strong>
+            <div class="role">Etudiant</div>
+            <div class="muted">Gestion durable environnement</div>
           </div>
         </div>
       </div>
 
       <div class="col-md-6 col-lg-4">
         <div class="member">
-          <img class="avatar" src="assets/team/lead-tech.jpg" alt="Lead Tech">
+          <a href="https://www.linkedin.com/in/bernice-brice-b-sawadogo-a77b0a1bb/" class="member-link">
+        <img class="avatar" src="assets/team/brice.png" alt="Cheick KANAZOE">
+        </a>
           <div>
-            <strong>Nom Prénom</strong>
-            <div class="role">Lead Tech</div>
-            <div class="muted">Infra, QA, sécurité</div>
+            <strong>Brice SAWADOGO</strong>
+            <div class="role">Ingénieur</div>
+            <div class="muted">Photovoltaïque</div>
           </div>
         </div>
       </div>
 
       <div class="col-md-6 col-lg-4">
         <div class="member">
-          <img class="avatar" src="assets/team/lead-ops.jpg" alt="Lead Opérations">
+          <a href="https://www.linkedin.com/in/ismaila-yoda-819242199/" class="member-link">
+        <img class="avatar" src="assets/team/yoda.png" alt="Ismaïl YODA">
+        </a>
           <div>
-            <strong>Nom Prénom</strong>
-            <div class="role">Lead Opérations</div>
-            <div class="muted">Déploiements terrain, formation</div>
+            <strong>Ismaïl YODA</strong>
+            <div class="role">Ingénieur</div>
+            <div class="muted">EPM Business & Data</div>
           </div>
         </div>
       </div>
-    </div> -->
+      
+      <div class="col-md-6 col-lg-4">
+        <div class="member">
+          <a href="https://www.linkedin.com/in/etienne-yameogo/" class="member-link">
+        <img class="avatar" src="assets/team/etienne.png" alt="Etienne YAMEOGO">
+        </a>
+          <div>
+            <strong>Etienne YAMEOGO</strong>
+            <div class="role">Ingénieur</div>
+            <div class="muted">Conducteur de travaux</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="member">
+          <a href="https://www.linkedin.com/in/pouloumd%C3%A9-nikiema-b6225a228/" class="member-link">
+        <img class="avatar" src="assets/team/nikiema.png" alt="Nikiema POULMDE">
+        </a>
+          <div>
+            <strong>Nikiema POULMDE</strong>
+            <div class="role">Ingénieur</div>
+            <div class="muted">Doctorant Genie Mécanique</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="member">
+          <a href="https://www.linkedin.com/in/guy-sama/" class="member-link">
+        <img class="avatar" src="assets/team/guy.png" alt="Guy SAMA">
+        </a>
+          <div>
+            <strong>Guy SAMA</strong>
+            <div class="role">Ingénieur</div>
+            <div class="muted">Etudes Mécaniques</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="member">
+          <a href="https://www.linkedin.com/in/ali-hebie-ingenieur/" class="member-link">
+        <img class="avatar" src="assets/team/hebie.png" alt="Ali HEBIE">
+        </a>
+          <div>
+            <strong>Ali HEBIE</strong>
+            <div class="role">Ingénieur</div>
+            <div class="muted">Textile</div>
+          </div>
+        </div>
+      </div>
 
     <div class="text-center mt-4">
       <a href="#adhesion" class="btn btn-gold"><i class="fa-solid fa-user-plus me-2"></i> Devenir membre</a>
@@ -473,10 +586,10 @@
       </div>
       <div class="col-6 col-md-3">
         <div class="card p-3 text-center">
-          <img src="assets/partners/incubator.png" class="img-fluid" alt="Incubateur partenaire">
+          <img src="assets/partners/lycee_scientifique_ouaga.png" class="img-fluid" alt="Incubateur partenaire">
         </div>
       </div>
-      <div class="col-6 col-md-3">
+      <!-- <div class="col-6 col-md-3">
         <div class="card p-3 text-center">
           <img src="assets/partners/company.png" class="img-fluid" alt="Entreprise partenaire">
         </div>
@@ -485,7 +598,7 @@
         <div class="card p-3 text-center">
           <img src="assets/partners/diaspora.png" class="img-fluid" alt="Diaspora partenaire">
         </div>
-      </div>
+      </div> -->
     </div>
 
     <div class="card mt-4">
@@ -513,7 +626,7 @@
             <span class="pill">Énergie</span>
             <h5 class="mt-2">L’électricité, moteur du développement technologique du Burkina Faso</h5>
             <p class="muted mb-2">Accès, fiabilité, mix énergétique et pistes d’action citoyenne. Focus mini-réseaux, formation, innovation locale et PPP.</p>
-            <a class="link-clean" href="#"><i class="fa-solid fa-book-open me-2 text-warning"></i>Lire l’article</a>
+            <a class="link-clean" href="https://www.linkedin.com/posts/lacoalition_l%C3%A9lectricit%C3%A9-moteur-du-d%C3%A9veloppement-technologique-activity-7375068288772497408-9_Tj?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEXDZKkBmLK7Q062QrfyPCfX53NYsH92bVQ"><i class="fa-solid fa-book-open me-2 text-warning"></i>Lire l’article</a>
           </div>
         </div>
       </div>
@@ -523,14 +636,14 @@
             <span class="pill">Capital humain</span>
             <h5 class="mt-2">Former pour innover : le pilier du développement technologique</h5>
             <p class="muted mb-2">Aligner formations et besoins, renforcer la pratique, documenter, valoriser la recherche appliquée et les FabLabs.</p>
-            <a class="link-clean" href="#"><i class="fa-solid fa-book-open me-2 text-warning"></i>Lire l’article</a>
+            <a class="link-clean" href="https://www.linkedin.com/posts/lacoalition_%F0%9D%90%85%F0%9D%90%A8%F0%9D%90%AB%F0%9D%90%A6%F0%9D%90%9E%F0%9D%90%AB-%F0%9D%90%A9%F0%9D%90%A8%F0%9D%90%AE%F0%9D%90%AB-%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A7%F0%9D%90%A8%F0%9D%90%AF%F0%9D%90%9E%F0%9D%90%AB-%F0%9D%90%A5-activity-7392275828904185856-Ppf9?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEXDZKkBmLK7Q062QrfyPCfX53NYsH92bVQ"><i class="fa-solid fa-book-open me-2 text-warning"></i>Lire l’article</a>
           </div>
         </div>
       </div>
     </div>
 
     <div class="text-center mt-4">
-      <a class="btn btn-outline-gold" href="#"><i class="fa-solid fa-newspaper me-2"></i>Tous les articles</a>
+      <a class="btn btn-outline-gold" href="#articles"><i class="fa-solid fa-newspaper me-2"></i>Tous les articles</a>
     </div>
   </div>
 </section>
@@ -563,7 +676,7 @@
             <h5>Devenir membre</h5>
             <div class="divider"></div>
             <p class="muted">Adhésion annuelle — soutien moral et matériel, participation aux votes et groupes de travail.</p>
-            <a href="#" class="btn btn-outline-gold w-100"><i class="fa-solid fa-id-card me-2"></i> Adhérer maintenant</a>
+            <a href="https://forms.gle/UPzHuPHd6Lpf7m3f9" class="btn btn-outline-gold w-100"><i class="fa-solid fa-id-card me-2"></i> Adhérer maintenant</a>
             <p class="muted mt-3"><small>Vous pouvez aussi soutenir ponctuellement via don : matériel, hébergement, connectivité, logistique.</small></p>
           </div>
         </div>
@@ -583,27 +696,40 @@
       <div class="col-lg-8">
         <div class="card">
           <div class="card-body">
-            <form action="#" method="POST">
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <label class="form-label" for="name">Nom</label>
-                  <input class="form-control" id="name" name="name" type="text" placeholder="Votre nom" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label class="form-label" for="email">Email</label>
-                  <input class="form-control" id="email" name="email" type="email" placeholder="email@exemple.com" required>
-                </div>
-              </div>
-              <div class="mb-3">
-                <label class="form-label" for="subject">Sujet</label>
-                <input class="form-control" id="subject" name="subject" type="text" placeholder="Objet de votre message" required>
-              </div>
-              <div class="mb-3">
-                <label class="form-label" for="message">Message</label>
-                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
-              </div>
-              <button class="btn btn-gold w-100" type="submit"><i class="fa-solid fa-paper-plane me-2"></i> Envoyer</button>
+           <form action="https://formspree.io/f/xovolqje" method="POST">
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label class="form-label" for="name">Nom</label>
+      <input class="form-control" id="name" name="name" type="text" placeholder="Votre nom" required>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label class="form-label" for="email">Email</label>
+      <input class="form-control" id="email" name="email" type="email" placeholder="email@exemple.com" required>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="subject">Sujet</label>
+    <input class="form-control" id="subject" name="subject" type="text" placeholder="Objet de votre message" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="message">Message</label>
+    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
+  </div>
+
+  <!-- Optional: Formspree redirect after success -->
+  <input type="hidden" name="_redirect" value="https://lacoalition.org/merci.html">
+
+  <!-- Optional: Formspree auto-email subject -->
+  <input type="hidden" name="_subject" value="Nouveau message depuis le site La Coalition">
+
+  <button class="btn btn-gold w-100" type="submit">
+    <i class="fa-solid fa-paper-plane me-2"></i> Envoyer
+  </button>
             </form>
+
 
             <div class="divider"></div>
             <div class="text-center">
